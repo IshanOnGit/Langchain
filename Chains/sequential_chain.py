@@ -16,7 +16,7 @@ prompt2 = PromptTemplate(
     input_variables=["text"],
 )
 
-model = ChatGoogleGenerativeAI(model="gemini-2.0-flash")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 parser = StrOutputParser()
 
 # Adapter: take the string output and convert it into {"text": ...}
