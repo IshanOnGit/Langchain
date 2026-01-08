@@ -1,0 +1,7 @@
+LEVEL 1 → Message objects (System / Human / AI)
+LEVEL 2 → Chat loop & memory
+LEVEL 3 → Prompt templates
+LEVEL 4 → MessagesPlaceholder & memory injection
+LEVEL 5 → Model invocation
+LEVEL 6 → Structured output (this code)
+LEVEL 7 → Agents & workflows

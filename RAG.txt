@@ -1,0 +1,8 @@
+RAG - Retriveal Augmented Generation
+Technique that combines information retrieval with language Generation, where a model retrievs
+relevant documents from a knowledge base and then uses them as context to generate accurate and grounded responses.
+
+Benefits :
+Use of up-to-date information
+Better privacy
+No limit of document size

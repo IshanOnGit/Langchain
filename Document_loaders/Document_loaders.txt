@@ -1,0 +1,11 @@
+Document loaders are componenet in langchain used to load data from various sources into a 
+standardized format(usually as Document objects) which can be then used for chunking, embedding, retrieval, and Generation
+They act as the entry point of data into a LangChain pipeline, abstracting away the complexity of reading different file types or data sources. Each loaded Document typically contains two main parts:
+
+page_content – the actual text data
+
+metadata – contextual information such as source, file path, page number, URL, or timestamps
+
+LangChain provides document loaders for a wide range of sources, including text files, PDFs, Word documents, HTML pages, CSVs, JSON files, databases, APIs, and even cloud storage services. This standardization allows downstream components—such as text splitters, embedding models, vector stores, and retrievers—to work seamlessly regardless of the original data source.
+
+By separating data ingestion from processing logic, document loaders make applications more modular, scalable, and easier to maintain, especially in retrieval-augmented generation (RAG) systems
