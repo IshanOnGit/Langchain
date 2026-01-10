@@ -1,10 +1,20 @@
+# NEED OF STRUCTURED OUTPUT
+# Raw LLM outputs are hard to parse, unreliable, dangerous in production
+# LangChain creates a new model wrapper
+# Adds: instructions, output parsing, validation
+# model.invoke() → free text
+# structured_model.invoke() → validated structure
+
+# This code enforces structured output from a Gemini LLM using a TypedDict schema, ensuring predictable, validated responses suitable for production use.
+
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 from typing import TypedDict, Annotated  # use typing_extensions.Annotated if on older Python
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model='gemini-2.0-flash')
+model = ChatGoogleGenerativeAI(model='gemini-2.5-flash')
 
 # Schema
 class Review(TypedDict):
@@ -21,6 +31,23 @@ result = structured_model.invoke(
     to other brands. Hoping for a software update to fix this."""
 )
 
-print(result)                # should be a dict-like object matching Review
+# INTERNALLY 
+# LangChain injects schema instructions
+# Gemini generates output
+# LangChain parses it
+# If output doesn’t match schema → retry or error
+
+print(result)    
+#Now you can: store it in DB, send to frontend, run logic on it, chain it to another agent            # should be a dict-like object matching Review
 print(result["Summary"])
 print(result["Sentiment"])
+
+# Where this is used in real applications ?
+# This pattern is used for:
+# sentiment analysis
+# classification
+# entity extraction
+# form filling
+# API generation
+# decision-making agents
+# Basically: anywhere reliability matters
